@@ -1,35 +1,28 @@
-<p align="center">
-  <a href="https://modal.com">
-    <img src="https://modal-cdn.com/bigicon.png" height="96">
-    <h3 align="center">Modal Examples</h3>
-  </a>
-</p>
+## What I did
 
-This is a collection of examples for [Modal](https://modal.com/). Use these examples to learn Modal and build your own robust and scalable applications.
+1. Forked from the [Modal examples](https://github.com/modal-labs/modal-examples) repository.
+2. Run the following commands to set up uv:
+    ```bash
+    uv init
+    uv add modal
+    ```
 
-## Usage
+## Running the examples
 
-First, sign up for a free account at [modal.com](https://modal.com/) and follow
-the setup instructions to install the `modal` package and set your API key.
-
-The examples are organized into several folders based on their category. You can
-generally run the files in any folder much like you run ordinary Python programs, with a
-command like:
+Run on Modal:
 
 ```bash
-modal run 01_getting_started/hello_world.py
+uv run modal run 06_gpu_and_ml/llm-serving/trtllm_latency.py
 ```
 
-Although these scripts are run on your local machine, they'll communicate with
-Modal and run in our cloud, spawning serverless containers on demand.
+Deploy to Modal:
 
-## Examples
+```bash
+uv run modal deploy 06_gpu_and_ml/llm-serving/trtllm_latency.py
+```
 
-- [**`01_getting_started/`**](01_getting_started) through [**`14_clusters/`**](14_clusters) provide a guided tour through Modal's concepts and capabilities.
-- [**`misc/`**](/misc) contains uncategorized, miscellaneous examples.
+Start a local interactive chat client that connects to the deployed Modal LLM serving endpoint:
 
-_These examples are continuously tested for correctness against Python **3.11**._
-
-## License
-
-The [MIT license](LICENSE).
+```bash
+uv run 06_gpu_and_ml/llm-serving/trtllm_latency.py
+```
